@@ -1,0 +1,33 @@
+Header:
+The main parent element returned by Header.jsx file is a header, rather than a div.
+img src is a variable, then referred to in img using {}.
+
+Meals.jsx:
+The main parent element returned by Meals.jsx is a ul.
+Should check if the response is ok or not ok.
+This was done correctly but I'm afraid I will forget it: Meals is a state because you need an initial value to render.
+
+Meal.jsx:
+The main parent element returned by Meal.jsx is a li.
+p tag with classname of meal-item-actions is the parent of the button in this file.
+
+Checkout.jsx:
+Should contain a form.
+
+Others:
+formatting.js -> currency formatter function is created (Intl.NumberFormat) for currency formatting, rather than toFixed(2)
+UI subfolder -> button component
+Cart data is managed through context management, rather than through props, useReducer is used to modify items in cart.
+Splice is used to remove items. Maybe good for ensuring that the items dont jump positions when removed?
+.reduce is used to calculate the total quantity/total price, rather than looping through with forEach.
+Modal as a reusable component.
+Done correctly, but afraid i will forget it: dialog is not opened using the open prop because the backdrop will not be applied when opened this way.
+UserProgressContext created to showcart, hidecart, showcheckout, hidecheckout, managed using usestate.
+Input can be a new UI component consisting of a label and an input.
+Custom hook called useHTTP is created. It checks on the response status. If it isnt, returns the error message. If not, throws a general error message. It also manages a loading and data state.
+The above hook is called on form submission and to get the data for meals and return loading/error messages when data is not obtained (yet?). See previous lessons for implementation.
+Error.jsx is created for outputting error messages.
+
+What I added after seeing the instructor's solutions:
+Post request upon form submission in checkout screen
+
