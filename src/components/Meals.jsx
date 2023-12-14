@@ -4,8 +4,8 @@ import Meal from "./Meal"
 
 export default function Meals({addToCart}){
 
-    function handleAddToCart(name){
-        addToCart(name)
+    function handleAddToCart({name, price, id}){
+        addToCart({name, price, id})
     }
 
     useEffect(()=>{
@@ -22,7 +22,7 @@ export default function Meals({addToCart}){
     return(
         <div id="meals">
             {meals.map(meal=>
-                <Meal handleAddToCart={handleAddToCart} key={meal.id} price={meal.price} description={meal.description} image = {meal.image} name={meal.name}/>
+                <Meal handleAddToCart={handleAddToCart} key={meal.id} id={meal.id} price={meal.price} description={meal.description} image = {meal.image} name={meal.name}/>
             )}
         </div>
     )

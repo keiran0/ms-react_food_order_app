@@ -1,7 +1,7 @@
-export default function Meal({name, price, description, image, handleAddToCart}){
+export default function Meal({name, price, description, image, handleAddToCart, id}){
 
     function addItem(){
-        handleAddToCart([name])
+        handleAddToCart({name, price, id})
     }
 
     return(
