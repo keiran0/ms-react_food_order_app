@@ -9,6 +9,7 @@ function App() {
 
   const [cart, setCart] = useState([])
   const cartRef = useRef();
+  const checkoutRef = useRef();
 
   function addToCart({name, price, id}){
     if (cart.filter((item)=> item.name == name).length == 0){ //item does not exist
@@ -17,11 +18,6 @@ function App() {
       let ind = cart.findIndex((item)=>item.name == name)
       setCart([...cart.filter((item)=>item.name !== name), {name, quantity: cart[ind].quantity + 1, id, price}])
     }
-  }
-
-  function showModal(){
-    console.log("modal opened")
-    cartRef.current.open()
   }
 
   function increaseQuantity({name, quantity, price, id}){
@@ -38,11 +34,10 @@ function App() {
 
   return (
     <>
-
-      <Header showModal={showModal}/>
+      <Header showModal={()=>{cartRef.current.open()}} cart={cart}/>
       <Meals addToCart={addToCart}/>
-      <Cart ref={cartRef} cart={cart} handleIncreaseQuantity={increaseQuantity} handleDecreaseQuantity={decreaseQuantity}/>
-      <Checkout cart={cart}/>
+      <Cart ref={cartRef} cart={cart} checkoutHandler={()=>{checkoutRef.current.open()}} handleIncreaseQuantity={increaseQuantity} handleDecreaseQuantity={decreaseQuantity}/>
+      <Checkout cart={cart} ref={checkoutRef}/>
     </>
   );
 }
